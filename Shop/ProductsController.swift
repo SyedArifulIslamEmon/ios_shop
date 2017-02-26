@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProductsController: UITableViewController {
+class ProductsController: UITableViewController, ShowOrderProtocol {
     
     // TODO: переделать передачу категории (через протокол)
     public var currentCategory = 0
@@ -16,7 +16,7 @@ class ProductsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        (self.navigationController as! NavController).addCartButton(at: self)
+//        (self.navigationController as! NavController).addCartButton(at: self)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

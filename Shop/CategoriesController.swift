@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CategoriesController: UITableViewController {
+class CategoriesController: UITableViewController, ShowOrderProtocol {
     
     private var currentCategory = 0
 
@@ -17,7 +17,7 @@ class CategoriesController: UITableViewController {
         
         tableView.delegate = self
         
-        (self.navigationController as! NavController).addCartButton(at: self)
+//        (self.navigationController as! NavController).addCartButton(at: self)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

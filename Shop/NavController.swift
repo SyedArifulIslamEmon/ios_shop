@@ -8,11 +8,13 @@
 
 import UIKit
 
+protocol ShowOrderProtocol{}
+
 class NavController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.delegate = self
 //        var button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem., target: self, action: "someAction")
         
         
@@ -29,7 +31,7 @@ class NavController: UINavigationController {
     
     func addCartButton(at viewController: UIViewController)
     {
-        let button = UIBarButtonItem(title: "Заказ", style: UIBarButtonItemStyle.plain, target: viewController, action: #selector(NavController.cartClicked))
+        let button = UIBarButtonItem(title: "Заказ", style: UIBarButtonItemStyle.plain, target: self, action: #selector(NavController.cartClicked))
         
         viewController.navigationItem.rightBarButtonItem = button
     }
@@ -40,6 +42,13 @@ class NavController: UINavigationController {
     func cartClicked(sender: UIBarButtonItem)
     {
         
+        //performSegue(withIdentifier: "showOrderSegue", sender: nil)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "orderController")
+        
+        self.pushViewController(vc, animated: true)
+//        self.setViewControllers([vc], animated: true)
     }
 
     /*
@@ -52,4 +61,17 @@ class NavController: UINavigationController {
     }
     */
 
+}
+
+extension NavController : UINavigationControllerDelegate {
+    
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        
+        if viewController is ShowOrderProtocol {
+            print("показываем кнопку заказа...")
+            addCartButton(at: viewController)
+        }
+        
+    }
 }
