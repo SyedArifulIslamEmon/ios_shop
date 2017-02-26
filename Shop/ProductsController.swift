@@ -48,13 +48,40 @@ class ProductsController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as! ProductTableViewCell
         
-        cell.title.text = Shop
+        let product = Shop
             .shared
             .products
             .filter({ $0.cat == currentCategory })[indexPath.row]
-            .name
-
+        
+        let ordered = Order
+            .shared
+            .products
+            .filter({ $0 == product })
+            .count
+        
+        cell.title.text = product.name + (ordered > 0 ? " (\(ordered))" : "")
+        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let product = Shop
+            .shared
+            .products
+            .filter({ $0.cat == currentCategory })[indexPath.row]
+        
+        Order.shared.add(product: product)
+        
+        tableView.reloadData()
+        
+//        let cell = tableView.cellForRow(at: indexPath)!
+//        cell.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 0.5)
+//        
+//        
+//        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 12, options: .curveLinear, animations: {
+//            cell.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 0.5)
+//        }, completion: nil)
+        
     }
     
 

@@ -8,8 +8,16 @@
 
 import Foundation
 
-class Product
+class Product:Equatable
 {
+    public static func ==(lhs: Product, rhs: Product) -> Bool {
+        return (
+            lhs.name == rhs.name &&
+            lhs.cat == rhs.cat &&
+            lhs.price == rhs.price
+        )
+    }
+
     var name:String = ""
     var cat:Int = 0
     var price:Int = 0
