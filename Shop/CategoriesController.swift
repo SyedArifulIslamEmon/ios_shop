@@ -9,6 +9,8 @@
 import UIKit
 
 class CategoriesController: UITableViewController {
+    
+    private var currentCategory = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +51,18 @@ class CategoriesController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO: подозреваю, что индекс категории должен браться как-то иначе
+        currentCategory = indexPath.row + 1
         performSegue(withIdentifier: "showProducts", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "showProducts"
+        {
+            let dest = segue.destination as! ProductsController
+            dest.currentCategory = currentCategory
+        }
     }
 
     /*

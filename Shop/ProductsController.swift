@@ -9,6 +9,9 @@
 import UIKit
 
 class ProductsController: UITableViewController {
+    
+    // TODO: переделать передачу категории (через протокол)
+    public var currentCategory = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,14 +37,22 @@ class ProductsController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return Shop.shared.products.count
+        return Shop
+            .shared
+            .products
+            .filter({ $0.cat == currentCategory })
+            .count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as! ProductTableViewCell
-
-        cell.title.text = Shop.shared.products[indexPath.row].name
+        
+        cell.title.text = Shop
+            .shared
+            .products
+            .filter({ $0.cat == currentCategory })[indexPath.row]
+            .name
 
         return cell
     }

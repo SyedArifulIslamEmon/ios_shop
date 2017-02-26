@@ -16,6 +16,7 @@ class Shop
     
     var products:[Product]
     
+    
     private init()
     {
         categories = [
