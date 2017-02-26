@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8F16147B1E62B93000DA71BD /* DataSegueProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F16147A1E62B93000DA71BD /* DataSegueProtocol.swift */; };
+		8F16147D1E62CF4500DA71BD /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F16147C1E62CF4500DA71BD /* NavController.swift */; };
 		8F68782B1E59BE980016FADC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F68782A1E59BE980016FADC /* AppDelegate.swift */; };
 		8F6878301E59BE980016FADC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F68782E1E59BE980016FADC /* Main.storyboard */; };
 		8F6878321E59BE980016FADC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F6878311E59BE980016FADC /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		8F16147A1E62B93000DA71BD /* DataSegueProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSegueProtocol.swift; sourceTree = "<group>"; };
+		8F16147C1E62CF4500DA71BD /* NavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
 		8F6878271E59BE980016FADC /* Shop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F68782A1E59BE980016FADC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F68782F1E59BE980016FADC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				8F68784E1E59CBE30016FADC /* CategoryTableViewCell.swift */,
 				8F6878501E59CBEF0016FADC /* OrderTableViewCell.swift */,
 				8F16147A1E62B93000DA71BD /* DataSegueProtocol.swift */,
+				8F16147C1E62CF4500DA71BD /* NavController.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F6878411E59C4BB0016FADC /* HomeController.swift in Sources */,
+				8F16147D1E62CF4500DA71BD /* NavController.swift in Sources */,
 				8F6878431E59C4DF0016FADC /* OrderController.swift in Sources */,
 				8F68783D1E59C2580016FADC /* CategoriesController.swift in Sources */,
 				8F68784B1E59CB600016FADC /* Order.swift in Sources */,

@@ -16,6 +16,8 @@ class CategoriesController: UITableViewController {
         super.viewDidLoad()
         
         tableView.delegate = self
+        
+        (self.navigationController as! NavController).addCartButton(at: self)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
